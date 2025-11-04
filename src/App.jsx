@@ -1,4 +1,6 @@
-import { Button } from "./components/ui/button";
+import FinalAnswerPopup from "./components/finish";
+
+import OceanScene from "./components/OceanScene";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
