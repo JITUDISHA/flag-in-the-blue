@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { db } from "../firebase/firebase.jsx";
+import { db } from "../firebase/firebase.js";
 import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import bcrypt from "bcryptjs";
 import {
