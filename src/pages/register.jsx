@@ -50,27 +50,27 @@ export default function registerUser() {
       }
 
       const usersRef = collection(db, "users");
-      const q = query(
-        usersRef,
-        or(where("phone", "==", phone), where("email", "==", email))
-      );
 
-      const snap = await getDocs(q);
+      const phoneQuery = query(usersRef, where("phone", "==", phone));
+      const emailQuery = query(usersRef, where("email", "==", email));
 
-      if (!snap.empty) {
-        const data = snap.docs[0].data();
-        if (data.phone === phone) {
-          toast.error("Phone number already registered!");
-        } else if (data.email === email) {
-          toast.error("Email already registered!");
-        }
+      const [phoneSnap, emailSnap] = await Promise.all([
+        getDocs(phoneQuery),
+        getDocs(emailQuery),
+      ]);
+
+      if (!phoneSnap.empty) {
+        toast.error("Phone number already registered!");
         return;
       }
 
-      //password hasing
+      if (!emailSnap.empty) {
+        toast.error("Email already registered!");
+        return;
+      }
+
       const hashed = await bcrypt.hash(password, 10);
 
-      // save user
       await addDoc(collection(db, "users"), {
         name,
         phone,
@@ -87,7 +87,7 @@ export default function registerUser() {
       });
     } catch (error) {
       toast.error("Some error occurred");
-      console.error("Error: ", e);
+      console.error("Error: ", error);
     } finally {
       setLoading(false);
     }
