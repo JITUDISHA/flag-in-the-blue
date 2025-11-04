@@ -89,7 +89,6 @@ export default function registerUser() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white-50">
-            <Toaster />
             <Card className="w-[400px] shadow-lg ">
                 <CardHeader>
                     <CardTitle className="text-center text-2xl font-semibold">
