@@ -1,11 +1,9 @@
-import React from "react";
-import BackgroundImage from "../assets/Background.png";
+import BackgroundImage from "../assets/background.png";
 import { scene } from "../config/scene";
-import Button from "../assets/Frame 5.png";
 export default function OceanScene() {
   return (
     <div
-      className="relative h-screen w-screen left- -1px bg-cover bg-bottom bg-no-repeat z-4 overflow-hidden"
+      className="relative h-screen w-screen bg-cover bg-bottom bg-no-repeat z-4 overflow-hidden"
       style={{
         backgroundImage: `url(${BackgroundImage})`,
       }} >
@@ -25,9 +23,6 @@ export default function OceanScene() {
           }}
           />
         ))}
-        <button className="relative top-[75vh] left-[43vw] z-10" >
-          <img src = {Button} className="w-[16vw] h-[20vh]" ></img>
-        </button>
         
    </div>
 )

@@ -8,20 +8,10 @@ import WrongAnswerPopup from "./components/wrong";
 
 function App() {
     return (
-
         <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-            <main className="flex min-h-screen flex-col items-center justify-center p-4">
-                
+            <main className="flex min-h-screen flex-col items-center justify-center">
                 <OceanScene />
-                 
                 <FinalAnswerPopup/>
-                {/* 
-                <HintBox />
-                <CorrectAnswerPopup/>
-                
-                <WrongAnswerPopup/>  */}
-
-
             </main>
         </ThemeProvider>
     );
